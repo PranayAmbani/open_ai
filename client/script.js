@@ -99,14 +99,14 @@ const handleSubmit = async (e) => {
     clearInterval(loadInterval);
     messageDiv.innerHTML = '';
 
-    if (response && response.statusText === 'OK') {
+    if (response) {
         console.log(response);
         const parsedData = response.data.bot.trim(); // trims any trailing spaces/'\n' 
         console.log({parsedData});
 
         typeText(messageDiv, parsedData);
     } else {
-        console.log(response);
+        console.log(response+response.statusText);
         const err = response ? response.statusText : 'Something went wrong';
 
         messageDiv.innerHTML = "Something went wrong";
