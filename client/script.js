@@ -89,7 +89,7 @@ const handleSubmit = async (e) => {
     let response;
 
     try {
-        response = await axios.post('https://openai-rfs2.onrender.com', {
+        response = await axios.post('http://localhost:5000/', {
             prompt: data.get('prompt')
         });
     } catch(e) {
