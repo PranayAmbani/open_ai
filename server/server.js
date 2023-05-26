@@ -5,10 +5,10 @@ import { Configuration, OpenAIApi  } from 'openai';
 
 dotenv.config();
 
-
 const configuration = new Configuration({
-    apiKey: process.env.OPENAI_API_KEY
+    apiKey: process.env.OPENAI_API_KEY,
 });
+
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -39,7 +39,7 @@ app.post('/', async (req, res) => {
             bot: response.data.choices[0].text
         })
     } catch (error){
-        console.error(error)
+        console.log(error)
         res.status(500).send({error})
     }
 })
